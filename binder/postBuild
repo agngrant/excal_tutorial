@@ -2,5 +2,5 @@
 
 # Import the workspace
 jupyter lab workspaces import binder/jupyterlab-workspace.json
-cp jupyterlab-workspace.json ~/.jupyter/lab/workspaces/default-37a8.jupyterlab-workspace
+cp binder/jupyterlab-workspace.json ~/.jupyter/lab/workspaces/default-37a8.jupyterlab-workspace
 
