@@ -3,4 +3,17 @@
 # Import the workspace
 jupyter lab workspaces import binder/jupyterlab-workspace.json
 
+backuppath=$HOME/.jupyter/lab/workspaces/
+
+# wrap in a function to avoid overwriting the global $1, $2, etc.
+find_files() {
+  set -- "$backuppath"/default-*
+  [ -e "$1" ] || { echo "Matched no files" >&2; exit 1; }
+  [ "$#" -gt 1 ] && echo "WARNING: Matched $# files; only taking first" >&2
+  defaultfile=$1
+}
+find_files
+
+cp binder/jupyterlab-workspace.json $defaultfile
+
 exec "$@"
